@@ -33,7 +33,12 @@ const BlogPage = () => {
         <div className="container mx-auto">
             <h1>Blog Page</h1>
             {
-                blogs.map(({id, year, title}) => <Link className="block border border-blue-500 p-2 my-2" href={`/blogs/${year}/${id}`}
+                blogs.map(({id, year, title}) => <Link className="block border border-blue-500 p-2 my-2" href={{
+                    pathname: `/blogs/${year}/${id}`,
+                    query: {
+                        title: title
+                    }
+                }}
                  key={id}>{title}</Link>)
             }
         </div>
